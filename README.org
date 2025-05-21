@@ -1,0 +1,39 @@
+#+TITLE: Popping Penguin
+#+AUTHOR: GKWA
+#+DATE: 2025-05-20
+
+* Popping Penguin
+
+A simple CLI tool to shrink image files while showing size statistics.
+
+** Installation
+
+#+begin_src sh
+go install github.com/gkwa/poppingpenguin@latest
+#+end_src
+
+** Usage
+
+#+begin_src sh
+# Shrink images with default compression
+poppingpenguin shrink *.jpg /tmp/*.jpg
+
+# Shrink with custom compression level (1-100, lower means smaller file)
+poppingpenguin shrink --level 50 *.jpg
+
+# Process multiple images concurrently for faster operation
+poppingpenguin shrink --concurrency 8 *.jpg
+
+# Show version information
+poppingpenguin version
+#+end_src
+
+** Options
+
+| Flag             | Description                                       |
+|------------------+---------------------------------------------------|
+| -v, --verbose    | Increase verbosity (can be used multiple times)   |
+| -l, --level      | Compression level (1-100, default: 80)            |
+| -c, --concurrency| Number of images to process concurrently (default: 4) |
+| -h, --help       | Help for poppingpenguin                           |
+
